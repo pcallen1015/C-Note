@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 
+import { TransactionsService } from '../../transactions/transactions.service';
+
 class Month {
   private MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   private monthId: number;
@@ -109,7 +111,7 @@ export class BudgetViewComponent implements OnInit {
   private months: Month[] = [];
   private form: any = {};
   
-  constructor() { }
+  constructor(private transactions: TransactionsService) { }
 
   private initTimeframe(): void {
     this.months = [
@@ -163,6 +165,10 @@ export class BudgetViewComponent implements OnInit {
     this.categories = [bills, expenses];
 
     this.initForm();
+  }
+
+  public createTransaction(): void {
+    this.transactions.create(new Date(), 'Some Payee');
   }
 
   public save(): void {
