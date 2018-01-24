@@ -8,8 +8,14 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 /* AppComponent */
 import { AppComponent } from './app.component';
 
-/* Budget View */
-import { BudgetViewModule } from './budget-view/budget-view.module';
+/* Budgets */
+import { BudgetsModule } from './budgets/budgets.module';
+
+/* Calendar */
+import { CalendarModule } from './calendar/calendar.module';
+
+/* Transactions */
+import { TransactionsModule } from './transactions/transactions.module';
 
 /* UI Utilities */
 import { UiUtilitiesModule } from './ui-utilities/ui-utilities.module';
@@ -23,10 +29,11 @@ import { UiUtilitiesModule } from './ui-utilities/ui-utilities.module';
     BrowserAnimationsModule,
 
     AppRoutingModule,
-    BudgetViewModule,
+    BudgetsModule,
+    CalendarModule,
+    TransactionsModule,
     UiUtilitiesModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TransactionsService } from './transactions.service';
+import { CalendarService } from './calendar.service';
 
 @NgModule({
   imports: [
     CommonModule
   ],
+  declarations: [],
   providers: [
-    TransactionsService,
+    CalendarService,
   ]
 })
-export class TransactionsModule { }
+export class CalendarModule { }

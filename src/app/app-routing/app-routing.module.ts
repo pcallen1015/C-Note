@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { BudgetViewComponent } from '../budget-view/budget-view/budget-view.component';
+import { BudgetViewComponent } from '../budgets/budget-view/budget-view.component';
 
 const ROUTES: Routes = [
   { path: '', redirectTo: 'budget', pathMatch: 'full' },
