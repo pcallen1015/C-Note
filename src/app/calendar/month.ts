@@ -19,4 +19,22 @@ export class Month {
     public getYearId(): number {
       return this.yearId;
     }
+
+    public getPreviousMonth(): Month {
+        let m = this.monthId - 1, y = this.yearId;
+        if (m < 1) {
+            m = 12;
+            y--;
+        }
+        return new Month(m, y);
+    }
+
+    public getNextMonth(): Month {
+        let m = this.monthId + 1, y = this.yearId;
+        if (m > 12) {
+            m = 1;
+            y++;
+        }
+        return new Month(m, y);
+    }
 }

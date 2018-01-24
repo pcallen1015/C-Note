@@ -5,6 +5,7 @@ import { MasterCategory } from '../master-category';
 import { SubCategory } from '../sub-category';
 import { Month } from '../../calendar/month';
 
+import { CalendarService } from '../../calendar/calendar.service';
 import { TransactionsService } from '../../transactions/transactions.service';
 
 @Component({
@@ -17,14 +18,13 @@ export class BudgetViewComponent implements OnInit {
   private months: Month[] = [];
   private form: any = {};
   
-  constructor(private transactions: TransactionsService) { }
+  constructor(
+    private calendar: CalendarService,
+    private transactions: TransactionsService
+  ) { }
 
   private initTimeframe(): void {
-    this.months = [
-      new Month(1, 2018),
-      new Month(2, 2018),
-      new Month(3, 2018)
-    ];
+    this.months = this.calendar.getMonthRange(new Month(1, 2018), 3)
   }
 
   private initForm(): void {
