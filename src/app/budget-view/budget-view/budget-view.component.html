@@ -1,0 +1,56 @@
+<section>
+  <table>
+    <thead>
+      <tr>
+        <td><!-- Empty --></td>
+        <td *ngFor="let m of months" colspan="3">{{m.getName()}} [{{m.getYearId()}}, {{m.getMonthId()}}]</td>
+      </tr>
+      <tr>
+        <td>Budget Categories</td>
+        <ng-container *ngFor="let m of months">
+          <td>Budgeted</td>
+          <td>Outflows</td>
+          <td>Balance</td>
+        </ng-container>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Master Categories -->
+      <ng-container *ngFor="let category of categories">
+        <tr class="category-master">
+          <td>{{category.name}}</td>
+          <ng-container *ngFor="let m of months">
+            <td>-- Total Budgted --</td>
+            <td>-- Total Outflows --</td>
+            <td>-- Total Balance --</td>
+          </ng-container>
+          
+        </tr>
+
+        <!-- Sub-Categories -->
+        <tr *ngFor="let subcategory of category.categories" class="category-sub">
+          <td>{{subcategory.name}}</td>
+          <ng-container *ngFor="let m of months">
+            <td>
+              <!-- budgeted for the sub-category -->
+              <input type="number" [(ngModel)]="form[category.getName()][subcategory.getName()][m.getYearId()][m.getMonthId()]" (blur)="save()" />
+            </td>
+            <td>
+              <!-- outflows for the sub-category -->
+              {{subcategory.getOutflows(m.getYearId(), m.getMonthId())}}
+            </td>
+            <td>
+              <!-- balance for the sub-category -->
+            </td>
+          </ng-container>
+
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
+  <button (click)="save()">Save</button>
+
+  <pre>{{form | json}}</pre>
+  <pre>{{ categories | json}}</pre>
+</section>
