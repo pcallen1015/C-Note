@@ -1,0 +1,37 @@
+<table>
+  <tbody>
+
+    <!-- New Transaction -->
+    <tr>
+      <td>
+        <input type="date" [(ngModel)]="form.date" />
+      </td>
+      <td>
+        <input type="text" placeholder="Payee" [(ngModel)]="form.payee" />
+      </td>
+      <td>
+        <select [(ngModel)]="form.subCategory">
+          <ng-container *ngFor="let mCategory of categories">
+            <option *ngFor="let sCategory of mCategory.getSubCategories()" [ngValue]="sCategory">{{mCategory.getName()}}: {{sCategory.getName()}}</option>
+          </ng-container>
+        </select>
+      </td>
+      <td>
+        <input type="text" placeholder="Memo" [(ngModel)]="form.memo" />
+      </td>
+      <td>
+        <input type="number" placeholder="0.00" [(ngModel)]="form.amount" />
+      </td>
+      <td><!-- Cleared --></td>
+    </tr>
+
+    <!-- Actions -->
+    <tr>
+      <td colspan="5" style="text-align: center;">
+        <button (click)="save()">Save</button>
+        <button (click)="save(true)">Save and Add Another</button>
+        <button (click)="cancel()">Cancel</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

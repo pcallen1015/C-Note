@@ -74,7 +74,7 @@ export class BudgetViewComponent implements OnInit {
   }
 
   public createTransaction(): void {
-    this.transactions.create(new Date(), 'Some Payee');
+    this.transactions.create(new Date(), 'Some Payee', this.categories[0].getSubCategories()[0]);
   }
 
   public save(): void {

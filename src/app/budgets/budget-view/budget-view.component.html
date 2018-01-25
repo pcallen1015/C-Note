@@ -48,9 +48,10 @@
       </ng-container>
     </tbody>
   </table>
-
   <button (click)="save()">Save</button>
-  <button (click)="createTransaction()">Create</button>
+
+  <h2>New Transaction</h2>
+  <app-new-transaction-form></app-new-transaction-form>
 
   <pre>{{form | json}}</pre>
   <pre>{{ categories | json}}</pre>
