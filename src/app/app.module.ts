@@ -8,6 +8,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 /* AppComponent */
 import { AppComponent } from './app.component';
 
+/* Accounts */
+import { AccountsModule } from './accounts/accounts.module';
+
 /* Budgets */
 import { BudgetsModule } from './budgets/budgets.module';
 
@@ -29,6 +32,7 @@ import { UiUtilitiesModule } from './ui-utilities/ui-utilities.module';
     BrowserAnimationsModule,
 
     AppRoutingModule,
+    AccountsModule,
     BudgetsModule,
     CalendarModule,
     TransactionsModule,
