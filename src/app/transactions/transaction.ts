@@ -1,12 +1,19 @@
 import { SubCategory } from '../budgets/sub-category';
 
+export enum TransactionType {
+    PURCHASE = 'PURCHASE',
+    SALE = 'SALE',
+    TRANSFER = 'TRANSFER',
+}
+
 export class Transaction {
     private id: string;
     private created: Date;
     private modified: Date;
 
-    private payee: string;
+    private type: TransactionType;
     private transactionDate: Date;
+    private payee: string;
     private subCategory: SubCategory;
     private memo: string;
     private cleared: boolean;
@@ -19,6 +26,7 @@ export class Transaction {
         this.created = new Date();
         this.modified = new Date();
 
+        this.type = TransactionType.PURCHASE;
         this.transactionDate = transactionDate;
         this.payee = payee;
         this.subCategory = subCategory;

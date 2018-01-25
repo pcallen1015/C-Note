@@ -17,6 +17,9 @@ import { BudgetsModule } from './budgets/budgets.module';
 /* Calendar */
 import { CalendarModule } from './calendar/calendar.module';
 
+/* Payees */
+import { PayeesModule } from './payees/payees.module';
+
 /* Transactions */
 import { TransactionsModule } from './transactions/transactions.module';
 
@@ -35,6 +38,7 @@ import { UiUtilitiesModule } from './ui-utilities/ui-utilities.module';
     AccountsModule,
     BudgetsModule,
     CalendarModule,
+    PayeesModule,
     TransactionsModule,
     UiUtilitiesModule,
   ],
